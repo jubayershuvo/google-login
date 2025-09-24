@@ -1,12 +1,20 @@
 // app/api/emails/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { connectDB } from "@/lib/mongodb";
-import User from "@/models/User";
+import { readEmails } from "@/lib/readEmails";
 
 export async function GET(req: NextRequest) {
   try {
-    await connectDB();
-    const emails = await User.find();
+    const { searchParams } = new URL(req.url);
+    const email = searchParams.get("email");
+
+    if (!email) {
+      return NextResponse.json(
+        { error: "Missing email parameter" },
+        { status: 400 }
+      );
+    }
+
+    const emails = await readEmails(email);
 
     return NextResponse.json({ emails });
   } catch (error) {
