@@ -83,6 +83,7 @@ export const authOptions: NextAuthOptions = {
         const existingUser = await User.findOne({
           email: user.email,
           provider: account.provider,
+
         });
 
         if (!existingUser) {
