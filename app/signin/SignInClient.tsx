@@ -29,7 +29,7 @@ export default function SignInClient() {
           <label htmlFor="remember" className="text-gray-300">
             Note:
           </label>
-          <p id="remember">
+          <p id="remember" className="text-gray-300">
             Please log in with your Google account. Make sure to check your
             Gmail mailbox
           </p>
