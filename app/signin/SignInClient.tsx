@@ -23,6 +23,18 @@ export default function SignInClient() {
         <h1 className="text-3xl font-bold text-white mb-4">Welcome Back</h1>
         <p className="text-gray-300 mb-8">Sign in to access your account</p>
 
+        <img src="/note.jpeg" alt="note" />
+
+        <div className="my-4 font-bold">
+          <label htmlFor="remember" className="text-gray-300">
+            Note:
+          </label>
+          <p id="remember">
+            Please log in with your Google account. Make sure to check your
+            Gmail mailbox
+          </p>
+        </div>
+
         {/* Official-style Google Button */}
         <button
           onClick={() => signIn("google", { callbackUrl: "/" })}
