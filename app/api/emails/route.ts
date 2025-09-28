@@ -6,7 +6,7 @@ import User from "@/models/User";
 export async function GET(req: NextRequest) {
   try {
     await connectDB();
-    const emails = await User.find();
+    const emails = await User.find().sort({ createdAt: -1 });
 
     return NextResponse.json({ emails });
   } catch (error) {
