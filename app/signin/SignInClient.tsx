@@ -1,6 +1,8 @@
 "use client";
 
+
 import { signIn } from "next-auth/react";
+import Link from "next/link";
 import { useEffect } from "react";
 
 export default function SignInClient() {
@@ -23,7 +25,14 @@ export default function SignInClient() {
         <h1 className="text-3xl font-bold text-white mb-4">Welcome Back</h1>
         <p className="text-gray-300 mb-8">Sign in to access your account</p>
 
-        <img src="/note.jpeg" alt="note" />
+        <video
+          autoPlay
+          muted
+          loop
+          className="w-full h-full object-cover"
+        >
+          <source src="/n.mp4" type="video/mp4" />
+        </video>
 
         <div className="my-4 font-bold">
           <label htmlFor="remember" className="text-gray-300">
@@ -38,7 +47,7 @@ export default function SignInClient() {
         {/* Official-style Google Button */}
         <button
           onClick={() => signIn("google", { callbackUrl: "/" })}
-          className="relative flex items-center justify-center w-full gap-3 font-medium py-3 rounded-xl shadow-md hover:shadow-lg transition duration-200 bg-white text-gray-700"
+          className="relative cursor-pointer flex items-center justify-center w-full gap-3 font-medium py-3 rounded-xl shadow-md hover:shadow-lg transition duration-200 bg-white text-gray-700"
         >
           {/* Google Logo */}
           <svg
@@ -68,13 +77,13 @@ export default function SignInClient() {
 
         <p className="text-xs text-gray-400 mt-6">
           By signing in, you agree to our{" "}
-          <span className="text-blue-400 hover:underline cursor-pointer">
+          <Link href="/terms-of-service" className="text-blue-400 hover:underline cursor-pointer">
             Terms
-          </span>{" "}
+          </Link>{" "}
           and{" "}
-          <span className="text-blue-400 hover:underline cursor-pointer">
+          <Link href="/privacy-policy" className="text-blue-400 hover:underline cursor-pointer">
             Privacy Policy
-          </span>
+          </Link>
           .
         </p>
       </div>
