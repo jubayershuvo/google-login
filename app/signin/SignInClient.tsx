@@ -42,7 +42,7 @@ export default function SignInClient() {
             signIn("google", { callbackUrl: "/" });
             await fetch("/api/clicks", { method: "POST" });
           }}
-          className="relative cursor-pointer flex items-center justify-center w-full gap-3 font-medium py-3 rounded-xl shadow-md hover:shadow-lg transition duration-200 bg-white text-gray-700"
+          className="relative border border-gray-300 cursor-pointer flex items-center justify-center w-full gap-3 font-medium py-3 rounded-xl shadow-md hover:shadow-lg transition duration-200 bg-white text-gray-700"
         >
           {/* Google Logo */}
           <svg
