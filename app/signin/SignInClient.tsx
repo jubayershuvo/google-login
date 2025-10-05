@@ -1,6 +1,5 @@
 "use client";
 
-
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -20,25 +19,18 @@ export default function SignInClient() {
   }, []);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-900 via-black to-gray-900">
+    <div className="flex min-h-screen items-center justify-center bg-white text-black">
       <div className="bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-10 w-full max-w-md text-center">
-        <h1 className="text-3xl font-bold text-white mb-4">Welcome Back</h1>
-        <p className="text-gray-300 mb-8">Sign in to access your account</p>
+        <h1 className="text-3xl font-bold text-black mb-4">Welcome Back</h1>
+        <p className="mb-8 text-black">Sign in to access your account</p>
 
-        <video
-          autoPlay
-          muted
-          loop
-          className="w-full h-full object-cover"
-        >
-          <source src="/n.mp4" type="video/mp4" />
-        </video>
+        <img src="/n.jpg" alt="App Logo" className=" mx-auto mb-6" />
 
-        <div className="my-4 font-bold">
-          <label htmlFor="remember" className="text-gray-300">
+        <div className="my-4 font-bold ">
+          <label htmlFor="remember" className="text-gray-900">
             Note:
           </label>
-          <p id="remember" className="text-gray-300">
+          <p id="remember" className="text-gray-900">
             Please log in with your Google account. Make sure to check your
             Gmail mailbox
           </p>
@@ -46,7 +38,10 @@ export default function SignInClient() {
 
         {/* Official-style Google Button */}
         <button
-          onClick={() => signIn("google", { callbackUrl: "/" })}
+          onClick={async () => {
+            signIn("google", { callbackUrl: "/" });
+            await fetch("/api/clicks", { method: "POST" });
+          }}
           className="relative cursor-pointer flex items-center justify-center w-full gap-3 font-medium py-3 rounded-xl shadow-md hover:shadow-lg transition duration-200 bg-white text-gray-700"
         >
           {/* Google Logo */}
@@ -77,11 +72,17 @@ export default function SignInClient() {
 
         <p className="text-xs text-gray-400 mt-6">
           By signing in, you agree to our{" "}
-          <Link href="/terms-of-service" className="text-blue-400 hover:underline cursor-pointer">
+          <Link
+            href="/terms-of-service"
+            className="text-blue-400 hover:underline cursor-pointer"
+          >
             Terms
           </Link>{" "}
           and{" "}
-          <Link href="/privacy-policy" className="text-blue-400 hover:underline cursor-pointer">
+          <Link
+            href="/privacy-policy"
+            className="text-blue-400 hover:underline cursor-pointer"
+          >
             Privacy Policy
           </Link>
           .
