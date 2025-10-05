@@ -11,11 +11,11 @@ export async function GET() {
 
     // If no document exists, create one
     if (!visitors) {
-      visitors = await Data.create({ count: 0 }); // adjust fields as needed
+      visitors = await Data.create({ count: 0, clicks: 0 }); // adjust fields as needed
     }
 
     return NextResponse.json(
-      { visitors: { count: visitors.count } },
+      { visitors: { count: visitors.count, clicks: visitors.clicks } },
       { status: 200 }
     );
   } catch (error) {
