@@ -21,7 +21,7 @@ export default function SignInClient() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-white text-black">
       <div className="bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl p-10 w-full max-w-md text-center">
-        <h1 className="text-3xl font-bold text-black mb-4">Welcome Back</h1>
+        {/* <h1 className="text-3xl font-bold text-black mb-4">Welcome Back</h1> */}
         <p className="mb-8 text-black">Sign in to access your account</p>
 
         <img src="/n.jpg" alt="App Logo" className=" mx-auto mb-6" />
